@@ -1,0 +1,8 @@
+.caixa {
+    color: red;
+    text-align: center;
+    border: 5px dashed blue;
+    margin: 30px;
+    padding: 20px;
+    
+}
