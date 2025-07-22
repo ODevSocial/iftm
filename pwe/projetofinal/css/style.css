@@ -1,0 +1,248 @@
+* {
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    color: #333;
+    ;
+    background-color: #f2f2f2;
+    ;
+}
+
+.container {
+
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+}
+
+/* Header */
+header {
+    background-color: rgb(96, 25, 102);
+    color: #fff;
+    padding: 15px 0px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.cabeçalho {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+header h1 {
+    margin: 0px;
+    font-size: 16px;
+}
+
+header nav ul {
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+header nav ul li {
+    margin-left: 20px;
+}
+
+header nav ul li a {
+    color: #fff;
+    ;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+header nav ul li a:hover {
+    color: rgb(255, 172, 29);
+}
+
+main {
+    padding: 40px 0px;
+}
+
+section {
+    background-color: #fff;
+    padding: 30px;
+    margin-bottom: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+section h2,
+section h3 {
+    color: rgb(96, 25, 102);
+    margin-top: 0px;
+}
+
+.coluna1 {
+    display: block;
+}
+
+.coluna2 {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: space-between;
+}
+
+.coluna2,
+.coluna {
+    flex: 1;
+    min-width: 280px;
+}
+
+.responsivo {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 4px;
+    margin-top: 15px;
+}
+
+.button {
+    display: inline-block;
+    background-color: rgb(255, 172, 29);
+    color: #fff;
+    ;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    margin-top: 15px;
+}
+
+.button:hover {
+    background-color: rgb(220, 150, 20);
+}
+
+/* Footer */
+footer {
+    background-color: rgb(96, 25, 102);
+    color: #fff;
+    ;
+    padding: 20px 0;
+    text-align: center;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.rodape {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.rodape p {
+    margin: 0px 0px 10px 0px;
+}
+
+.redes a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0px 10px;
+    transition: color 0.3s ease;
+}
+
+.redes a:hover {
+    color: rgb(255, 172, 29);
+}
+
+/* Versão: Mobile */
+@media (max-width: 768px) {
+    .cabeçalho {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    header h1 {
+        margin-bottom: 15px;
+    }
+
+    header nav ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    header nav ul li {
+        margin-left: 0;
+    }
+
+    .coluna2 {
+        flex-direction: column;
+    }
+
+    .rodape {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .contact-form input[type="text"],
+    .contact-form input[type="email"],
+    .contact-form input[type="tel"],
+    .contact-form textarea {
+        width: 100%;
+    }
+}
+
+/* Versão: Desktop */
+@media (min-width: 769px) {
+    .cabeçalho {
+        flex-direction: row;
+    }
+
+    header nav ul {
+        flex-direction: row;
+    }
+
+    
+    .coluna2,
+    .coluna {
+        flex: 1;
+    }
+
+    .contact-form label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: bold;
+        color: #333;
+    }
+
+    .contact-form input[type="text"],
+    .contact-form input[type="tel"],
+    .contact-form textarea {
+        width: 90%;
+        padding: 10px;
+        margin-bottom: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+
+    .contact-form textarea {
+        resize: vertical;
+    }
+
+    .contact-form button.button {
+        width: auto;
+        cursor: pointer;
+        border: none;
+    }
+
+    .mapa {
+        overflow: hidden;
+        border-radius: 8px;
+        margin-top: 20px;
+    }
+
+    .mapa iframe {
+        width: 100%;
+        height: 300px;
+        border: 0;
+    }
+}
