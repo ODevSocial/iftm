@@ -1,0 +1,246 @@
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Scanner;
+
+public class Main {
+
+    // Constantes do sistema
+    private static final int TOTAL_VAGAS = 50;
+    private static final DateTimeFormatter formatador = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
+    
+    // Estruturas de dados
+    private static Map<String, Vaga> vagasPorPlaca = new HashMap<>();
+    private static Map<Integer, Vaga> vagasPorNumero = new HashMap<>();
+    private static int vagasOcupadas = 0;
+    
+    // Enum para tipos de veículos
+    private enum TipoVeiculo {
+        CARRO("Carro"),
+        MOTO("Moto"),
+        CAMINHAO("Caminhão"),
+        VAN("Van");
+        
+        private final String descricao;
+        
+        TipoVeiculo(String descricao) {
+            this.descricao = descricao;
+        }
+        
+        public String getDescricao() {
+            return descricao;
+        }
+    }
+    
+    // Classe para representar uma vaga
+    private static class Vaga {
+        private String placa;
+        private TipoVeiculo tipo;
+        private LocalDateTime horarioEntrada;
+        private int numeroVaga;
+        
+        public Vaga(String placa, TipoVeiculo tipo, int numeroVaga) {
+            this.placa = placa;
+            this.tipo = tipo;
+            this.horarioEntrada = LocalDateTime.now();
+            this.numeroVaga = numeroVaga;
+        }
+        
+        public String getPlaca() {
+            return placa;
+        }
+        
+        public TipoVeiculo getTipo() {
+            return tipo;
+        }
+        
+        public LocalDateTime getHorarioEntrada() {
+            return horarioEntrada;
+        }
+        
+        public int getNumeroVaga() {
+            return numeroVaga;
+        }
+    }
+    
+    // Método para cadastrar veículo
+    public static void cadastrarVeiculo(Scanner scanner) {
+        if (vagasOcupadas >= TOTAL_VAGAS) {
+            System.out.println("\nEstacionamento lotado! Não há vagas disponíveis.");
+            return;
+        }
+        
+        System.out.println("\n--- Cadastro de Veículo ---");
+        
+        // Selecionar tipo de veículo
+        System.out.println("Selecione o tipo de veículo:");
+        System.out.println("1 - Carro");
+        System.out.println("2 - Moto");
+        System.out.println("3 - Caminhão");
+        System.out.println("4 - Van");
+        System.out.print("Opção: ");
+        
+        TipoVeiculo tipo;
+        try {
+            int opcao = Integer.parseInt(scanner.nextLine());
+            switch (opcao) {
+                case 1: tipo = TipoVeiculo.CARRO; break;
+                case 2: tipo = TipoVeiculo.MOTO; break;
+                case 3: tipo = TipoVeiculo.CAMINHAO; break;
+                case 4: tipo = TipoVeiculo.VAN; break;
+                default:
+                    System.out.println("Opção inválida. Operação cancelada.");
+                    return;
+            }
+        } catch (NumberFormatException e) {
+            System.out.println("Entrada inválida. Operação cancelada.");
+            return;
+        }
+        
+        // Solicitar placa do veículo
+        System.out.print("Digite a placa do veículo: ");
+        String placa = scanner.nextLine().toUpperCase().trim();
+        
+        if (vagasPorPlaca.containsKey(placa)) {
+            System.out.println("Erro: Veículo com placa " + placa + " já está estacionado.");
+            return;
+        }
+        
+        // Encontrar próxima vaga disponível
+        int numeroVaga = encontrarVagaDisponivel();
+        if (numeroVaga == -1) {
+            System.out.println("Erro: Não foi possível encontrar vaga disponível.");
+            return;
+        }
+        
+        // Criar nova vaga
+        Vaga novaVaga = new Vaga(placa, tipo, numeroVaga);
+        vagasPorPlaca.put(placa, novaVaga);
+        vagasPorNumero.put(numeroVaga, novaVaga);
+        vagasOcupadas++;
+        
+        System.out.println("\n----------------------------------------");
+        System.out.println("VEÍCULO CADASTRADO COM SUCESSO!");
+        System.out.println("Vaga N°: " + numeroVaga);
+        System.out.println("Placa: " + placa);
+        System.out.println("Tipo: " + tipo.getDescricao());
+        System.out.println("Horário de entrada: " + novaVaga.getHorarioEntrada().format(formatador));
+        System.out.println("----------------------------------------");
+    }
+    
+    // Método auxiliar para encontrar vaga disponível
+    private static int encontrarVagaDisponivel() {
+        for (int i = 1; i <= TOTAL_VAGAS; i++) {
+            if (!vagasPorNumero.containsKey(i)) {
+                return i;
+            }
+        }
+        return -1;
+    }
+    
+    // Método para remover veículo
+    public static void removerVeiculo(Scanner scanner) {
+        System.out.println("\n--- Remoção de Veículo ---");
+        System.out.print("Digite a placa do veículo ou número da vaga: ");
+        String entrada = scanner.nextLine().trim();
+        
+        Vaga vaga = null;
+        
+        try {
+            // Tentar interpretar como número de vaga
+            int numeroVaga = Integer.parseInt(entrada);
+            vaga = vagasPorNumero.get(numeroVaga);
+        } catch (NumberFormatException e) {
+            // Interpretar como placa
+            vaga = vagasPorPlaca.get(entrada.toUpperCase());
+        }
+        
+        if (vaga == null) {
+            System.out.println("Veículo não encontrado. Verifique a placa ou número da vaga.");
+            return;
+        }
+        
+        LocalDateTime horarioSaida = LocalDateTime.now();
+        long horasEstacionado = java.time.Duration.between(vaga.getHorarioEntrada(), horarioSaida).toHours();
+        
+        System.out.println("\n----------------------------------------");
+        System.out.println("VEÍCULO REMOVIDO COM SUCESSO!");
+        System.out.println("Vaga N°: " + vaga.getNumeroVaga());
+        System.out.println("Placa: " + vaga.getPlaca());
+        System.out.println("Tipo: " + vaga.getTipo().getDescricao());
+        System.out.println("Entrada: " + vaga.getHorarioEntrada().format(formatador));
+        System.out.println("Saída: " + horarioSaida.format(formatador));
+        System.out.println("Tempo estacionado: " + horasEstacionado + " horas");
+        System.out.println("----------------------------------------");
+        
+        // Remover das estruturas de dados
+        vagasPorPlaca.remove(vaga.getPlaca());
+        vagasPorNumero.remove(vaga.getNumeroVaga());
+        vagasOcupadas--;
+    }
+    
+    // Método para consultar veículos
+    public static void consultarVeiculos() {
+        System.out.println("\n--- Veículos Estacionados ---");
+        System.out.println("Vagas ocupadas: " + vagasOcupadas + "/" + TOTAL_VAGAS);
+        
+        if (vagasOcupadas == 0) {
+            System.out.println("Nenhum veículo estacionado no momento.");
+            return;
+        }
+        
+        System.out.println("\nVaga | Placa    | Tipo       | Entrada");
+        System.out.println("----------------------------------------");
+        for (Vaga vaga : vagasPorNumero.values()) {
+            System.out.printf("%-4d | %-8s | %-10s | %s%n",
+                vaga.getNumeroVaga(),
+                vaga.getPlaca(),
+                vaga.getTipo().getDescricao(),
+                vaga.getHorarioEntrada().format(formatador));
+        }
+        System.out.println("----------------------------------------");
+    }
+    
+    // Método principal
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int opcao = 0;
+        
+        System.out.println("==== SISTEMA DE ESTACIONAMENTO ====");
+        
+        while (opcao != 4) {
+            System.out.println("\nMenu Principal:");
+            System.out.println("1 - Cadastrar veículo");
+            System.out.println("2 - Remover veículo");
+            System.out.println("3 - Consultar veículos");
+            System.out.println("4 - Sair");
+            System.out.print("Escolha uma opção: ");
+            
+            try {
+                opcao = Integer.parseInt(scanner.nextLine());
+                
+                switch (opcao) {
+                    case 1:
+                        cadastrarVeiculo(scanner);
+                        break;
+                    case 2:
+                        removerVeiculo(scanner);
+                        break;
+                    case 3:
+                        consultarVeiculos();
+                        break;
+                    case 4:
+                        System.out.println("Encerrando o sistema...");
+                        break;
+                    default:
+                        System.out.println("Opção inválida. Tente novamente.");
+                }
+            } catch (NumberFormatException e) {
+                System.out.println("Erro: Digite um número válido.");
+            }
+        }
+        
+        scanner.close();
+    }
+}
