@@ -4,7 +4,7 @@ btnGerarResultado.addEventListener("click", gerarSorteio);
 function gerarSorteio() {
 
     candidatos = [
-        { nome: "Jair Messias Bolsonaro", partido: "PL", img: "candidato1.png" }, { nome: "Luiz Inacio Lula da Silva", partido: "PT", img: "candidato2.png" }, { nome: "JCiro Gomes", partido: "PDT", img: "candidato3.png" }, { nome: "Simone Tebet", partido: "MDB", img: "candidato4.png" },
+        { nome: "Jair Messias Bolsonaro", partido: "PL", img: "candidato1.png" }, { nome: "Luiz Inacio Lula da Silva", partido: "PT", img: "candidato2.png" }, { nome: "Ciro Gomes", partido: "PDT", img: "candidato3.png" }, { nome: "Simone Tebet", partido: "MDB", img: "candidato4.png" },
     ]
     indices = [0, 1, 2, 3];
     nroVotos = Math.round(Math.random() * 100);
@@ -35,5 +35,6 @@ function gerarSorteio() {
         document.getElementById("percVencedor").innerHTML = vetVotos[1].toFixed(1);
     }
 }
+
 
 gerarSorteio();
