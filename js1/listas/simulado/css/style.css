@@ -1,0 +1,14 @@
+.destaque {
+    font-weight: bold;
+}
+
+.btnQtoFala {
+    background-color: green;
+    color: white;
+    padding: 10px 20px;
+}
+
+.btnQtoFala:hover {
+    background-color: red;
+    cursor: pointer;
+}
