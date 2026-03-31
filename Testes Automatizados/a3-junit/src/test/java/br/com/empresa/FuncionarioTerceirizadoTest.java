@@ -49,5 +49,6 @@ public class FuncionarioTerceirizadoTest {
                 f::calcularPagamento);
 
         assertEquals("Pagamento deve estar entre 1518.00 e 10000.00.", ex.getMessage());
+        // ajuste de implementação
     }
 }
