@@ -3,6 +3,8 @@ package br.com.empresa;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
+// ajuste para commit de teste
+
 public class FuncionarioTest {
 
     // horas
