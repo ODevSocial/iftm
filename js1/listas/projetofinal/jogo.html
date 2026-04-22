@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GaMo: Par ou Ímpar?</title>
+    <link rel="stylesheet" href="styles/style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+</head>
+
+<body>
+    <header>
+        <div>
+            <label for="nivel">Nível: </label>
+            <select name="nivel" id="nivel">
+                <option value="selecione" selected disabled>Selecione</option>
+                <option value="FACIL">Fácil</option>
+                <option value="MEDIO">Médio</option>
+                <option value="DIFICIL">Difícil</option>
+            </select>
+        </div>
+
+        <div>
+            <p>Tempo: <span id="tempoJogo">00:00</span></p>
+        </div>
+        <!-- icones do material do google -->
+        <div>
+            <button id="btnIniciar" disabled>
+                <span class="material-icons">play_arrow</span>
+            </button>
+            <button id="btnPausar" disabled>
+                <span class="material-icons">pause</span>
+            </button>
+            <button id="btnParar" disabled>
+                <span class="material-icons">stop</span>
+            </button>
+            <button id="btnMenu">
+                <span class="material-icons">home</span>
+            </button>
+            <button id="btnClassificacao">
+                <span class="material-icons">leaderboard</span>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <span id="numeroSorteado">-</span>
+    </main>
+
+    <footer>
+        <div>
+            <p>Acertos: <span id="acertos">0</span> (<span id="percentualAcertos">0.0%</span>)</p>
+        </div>
+        <div>
+            <p>Erros: <span id="erros">0</span></p>
+        </div>
+        <div>
+            <p>Números pares sorteados: <span id="pares">0</span></p>
+        </div>
+    </footer>
+
+    <script src="script/scriptJogo.js"></script>
+</body>
+
+</html>

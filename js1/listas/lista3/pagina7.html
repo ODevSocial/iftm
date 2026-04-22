@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Acesso ao sistema</h1>
+
+        <form id="formularioLogin">
+            <table>
+                <tr>
+                    <td>
+                        <label for="login">Login:</label>
+                    </td>
+                    <td>
+                        <input type="text" id="login" name="login">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="senha">Senha:</label>
+                    </td>
+                    <td>
+                        <input type="password" id="senha" name="senha" maxlength="8">
+                        <span class="max-caracteres">(max. 8 caracteres)</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="confirmarSenha">Confirmar senha:</label>
+                    </td>
+                    <td>
+                        <input type="password" id="confirmarSenha" name="confirmarSenha" maxlength="8">
+                        <span class="max-caracteres">(max. 8 caracteres)</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" class="botoes">
+                        <input type="button" id="btnEntrar" value="Entrar">
+                        <input type="button" id="btnLimpar" value="Limpar">
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+
+    <script src="pagina7.js"></script>
+</body>
+
+</html>

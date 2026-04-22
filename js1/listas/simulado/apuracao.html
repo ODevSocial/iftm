@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apuração</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <p class="destaque">1) Texto informado pelo usuário na página anterior</p>
+    <p id="infoUsuario"></p>
+
+    <p class="destaque">2) Você gostaria de analisar a informação disponibilizada pelo usuário na página anterior?</p>
+
+    <form id="formPreencher">
+        <select id="tipoInfo">
+            <option>Sim</option>
+            <option>Não</option>
+        </select>
+        <br>
+        <p>OBS: Se você responder "Não" na pergunta anterior (2), por favor, informe um novo texto na caixa abaixo:</p>
+        <hr>
+        <p class="destaque">3) Quantidade de palavras contidas no texto: <span id="txtTotalP"></span></p>
+
+        <label class="destaque"> 4) Palavras iniciadas com a letra M:</label>
+        <input type="text" id="txtPalavraM" disabled>
+        <br>
+        <br>
+
+        <label class="destaque">5) Primeira palavra do texto:</label>
+        <input type="text" id="txtPrimeiraPalavra" disabled>
+        <br>
+        <br>
+        
+        <label class="destaque">6) Segunda palavra do texto:</label>
+        <input type="text" id="txtSegundaPalavra" disabled>
+        <br>
+        <br>
+        
+        <label class="destaque">7) Última palavra do texto:</label>
+        <input type="text" id="txtUltPalavra" disabled>
+
+        <input type="button" value="Abrir a página do papai noel" id="btnAbrirHoHo">
+    </form>
+
+    <script src="js/apuracao.js"></script>
+</body>
+</html>
