@@ -1,0 +1,6 @@
+org\iftm\gerenciadorveterinarios\servicies\VeterinarioServiceTest.class
+org\iftm\gerenciadorveterinarios\selenium\VeterinarioSeleniumTest.class
+org\iftm\gerenciadorveterinarios\selenium\BaseSeleniumTest.class
+org\iftm\gerenciadorveterinarios\servicies\AnimalServiceTest.class
+org\iftm\gerenciadorveterinarios\servicies\VeterinarioServiceITest.class
+org\iftm\gerenciadorveterinarios\repositories\VeterinarioRepositoryTest.class

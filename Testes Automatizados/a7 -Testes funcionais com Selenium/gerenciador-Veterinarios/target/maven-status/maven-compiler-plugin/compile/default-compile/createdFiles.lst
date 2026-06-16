@@ -1,0 +1,9 @@
+org\iftm\gerenciadorveterinarios\servicies\AnimalService.class
+org\iftm\gerenciadorveterinarios\entities\Animal.class
+org\iftm\gerenciadorveterinarios\entities\Veterinario.class
+org\iftm\gerenciadorveterinarios\repositories\AnimalRepository.class
+org\iftm\gerenciadorveterinarios\controller\VeterinarioController.class
+org\iftm\gerenciadorveterinarios\repositories\VeterinarioRepository.class
+org\iftm\gerenciadorveterinarios\GerenciadorVeterinariosApplication.class
+org\iftm\gerenciadorveterinarios\servicies\VeterinarioService.class
+org\iftm\gerenciadorveterinarios\controller\HomeController.class
