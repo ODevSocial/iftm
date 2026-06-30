@@ -1,0 +1,117 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+.divSecOferecimento {
+  position: relative;
+  width: 100%;
+  padding: 40px 20px;
+  background-image: url("../../images/fundo_secao2.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.titulosOferecimento {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.titulosOferecimento h1 {
+  font-family: "Cormorant Garamond", serif, Georgia, 'Times New Roman', serif;
+  font-size: 2rem;
+  font-weight: 600;
+  color: #bb8823;
+  margin: 0 0 8px 0;
+}
+
+.titulosOferecimento h2 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #8fa179;
+  margin: 0;
+}
+
+.gridOferecimento {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  margin: 0 auto;
+  max-width: 100%;
+}
+
+.cardOferecimento {
+  background-color: #f8f4ed;
+  border-radius: 20px;
+  padding: 30px 25px;
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.cardOferecimento h3 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  line-height: 1.2;
+}
+
+.itemList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.item {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: #2b2b2b;
+  position: relative;
+  padding-left: 15px;
+}
+
+.item::before {
+  content: "•";
+  color: #8fa179;
+  font-weight: bold;
+  position: absolute;
+  left: 0;
+}
+
+@media (min-width: 900px) {
+  .divSecOferecimento {
+    padding: 75px 125px;
+  }
+
+  .titulosOferecimento {
+    margin-bottom: 50px;
+  }
+
+  .titulosOferecimento h1 {
+    font-size: 4rem;
+  }
+
+  .titulosOferecimento h2 {
+    font-size: 1.5rem;
+    letter-spacing: 3px;
+  }
+
+  .gridOferecimento {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+    max-width: 1200px;
+  }
+
+  .cardOferecimento {
+    border-radius: 30px;
+    padding: 40px 30px;
+  }
+}

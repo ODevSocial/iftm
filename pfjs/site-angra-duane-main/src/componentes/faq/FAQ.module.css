@@ -1,0 +1,130 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+.secaoFaq {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  padding: 60px 20px;
+  background-image: url("../../images/fundoFaq2.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+  border-bottom: 5px solid #bb8823;
+}
+
+.tituloFaq {
+  font-family: "Cormorant Garamond", serif, Georgia, 'Times New Roman', serif;
+  font-weight: 700;
+  font-size: 2.5rem;
+  text-align: center;
+  color: #000000;
+  margin-bottom: 48px;
+}
+
+.containerFaq {
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.cartaoFaq {
+  background-color: rgba(255, 255, 255, 0.85); 
+  border-radius: 20px;
+  overflow: hidden; 
+  transition: all 0.3s ease;
+}
+
+.cabecalhoFaq {
+  padding: 20px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+
+.cabecalhoFaq h3 {
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-size: 1.2rem;
+  line-height: 1.4;
+  color: #000000;
+  margin: 0;
+  padding-right: 20px;
+  text-align: left;
+}
+
+.iconeSeta {
+  width: 24px;
+  height: 24px;
+  color: #1D1B20;
+  transition: transform 0.3s ease;
+  flex-shrink: 0;
+}
+
+.cartaoFaq.ativo .iconeSeta {
+  transform: rotate(180deg);
+}
+
+.respostaContainer {
+  display: grid;
+  grid-template-rows: 0fr;
+  opacity: 0;
+  transition: grid-template-rows 0.5s ease, opacity 0.5s ease;
+}
+
+.cartaoFaq.ativo .respostaContainer {
+  grid-template-rows: 1fr;
+  opacity: 1;
+}
+
+.corpoFaq {
+  overflow: hidden;
+  padding: 0 30px; 
+}
+
+.corpoFaq p {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  font-weight: 300; 
+  font-size: 1.1rem;
+  line-height: 1.5;
+  color: #000000;
+  margin: 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.1); 
+  padding-top: 20px;
+  padding-bottom: 30px;
+}
+
+@media (min-width: 900px) {
+  .secaoFaq {
+    padding: 80px 40px;
+  }
+
+  .tituloFaq {
+    font-size: 4rem; 
+    margin-bottom: 60px;
+  }
+
+  .cabecalhoFaq {
+    padding: 24px 40px;
+  }
+
+  .cabecalhoFaq h3 {
+    font-size: 1.5rem; 
+  }
+
+  .corpoFaq {
+    padding: 0 40px;
+  }
+
+  .corpoFaq p {
+    font-size: 1.3rem; 
+    padding-bottom: 32px;
+  }
+}

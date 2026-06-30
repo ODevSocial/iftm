@@ -1,0 +1,99 @@
+.mainFooter {
+  background-image: url('../../images/FundoFooter.png');
+  background-size: cover;
+  background-position: bottom center;
+  background-repeat: no-repeat;
+  padding: 80px 0 60px 0;
+  position: relative;
+}
+
+.footerContainer {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+.footerGrid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+}
+
+.footerHeading {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #111111;
+  margin-bottom: 24px;
+}
+
+.contactLink {
+  text-decoration: none;
+  color: inherit;
+  display: inline-flex;
+  align-items: center;
+}
+
+.hoursText,
+.contactItem span {
+  font-family: 'Inter', sans-serif;
+  font-weight: 300;
+}
+
+.contactList {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 0;
+  list-style: none;
+}
+
+.contactItem {
+  display: flex;
+  align-items: center;
+  font-family: 'Inter', sans-serif;
+  font-size: 1.1rem;
+  color: #2c2c2c;
+}
+
+.hoursText {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.1rem;
+  color: #2c2c2c;
+}
+
+.footerLogoFull {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.footerLogo {
+  width: 270px;
+  height: auto;
+  display: block;
+}
+
+.footerIcon {
+  margin-right: 8px;
+  color: #d4af37;
+  flex-shrink: 0;
+}
+
+@media (max-width: 900px) {
+  .footerGrid {
+    flex-direction: column;
+    gap: 40px;
+    text-align: center;
+  }
+
+  .contactItem {
+    justify-content: center;
+  }
+
+  .footerLogoFull {
+    justify-content: center;
+    margin-top: 20px;
+  }
+}
